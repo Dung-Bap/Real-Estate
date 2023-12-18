@@ -1,8 +1,8 @@
 /** @format */
 
-import { Route, Routes } from "react-router-dom";
-import { path } from "./utils/path";
-import { PublicLayout, Home } from "./pages/public";
+import { Route, Routes } from 'react-router-dom';
+import { path } from './utils/path';
+import { PublicLayout, Home, AboutUs, OurAgents, Properties } from './pages/public';
 
 function App() {
     return (
@@ -10,6 +10,9 @@ function App() {
             <Routes>
                 <Route path={path.PUBLIC_LAYOUT} element={<PublicLayout />}>
                     <Route path={path.HOME} element={<Home />}></Route>
+                    <Route path={path.ABOUT_US} element={<AboutUs />}></Route>
+                    <Route path={path.OUR_AGENTS} element={<OurAgents />}></Route>
+                    <Route path={path.PROPERTIES} element={<Properties />}></Route>
                 </Route>
             </Routes>
         </div>

@@ -1,46 +1,26 @@
 /** @format */
 
-import { path } from "./path";
+import { path } from './path';
 
 export const NAVIGATE = [
     {
         id: 1,
         path: path.HOME,
-        name: "Home",
+        name: 'Home',
     },
     {
         id: 2,
-        path: path.HOME,
-        name: "Home",
+        path: path.ABOUT_US,
+        name: 'About us',
     },
     {
         id: 3,
-        path: path.HOME,
-        name: "Home",
+        path: path.OUR_AGENTS,
+        name: 'Our agents',
     },
     {
         id: 4,
-        path: path.HOME,
-        name: "Home",
-    },
-    {
-        id: 5,
-        path: path.HOME,
-        name: "Home",
-    },
-    {
-        id: 6,
-        path: path.HOME,
-        name: "Home",
-    },
-    {
-        id: 7,
-        path: path.HOME,
-        name: "Home",
-    },
-    {
-        id: 8,
-        path: path.HOME,
-        name: "Home",
+        path: path.PROPERTIES,
+        name: 'Properties',
     },
 ];

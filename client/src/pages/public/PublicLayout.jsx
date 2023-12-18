@@ -1,6 +1,6 @@
 /** @format */
-import { Outlet } from "react-router-dom";
-import { Navigate, TopHeader } from "../../components/public";
+import { Outlet } from 'react-router-dom';
+import { Navigate, TopHeader } from '../../components/public';
 
 const PublicLayout = () => {
     return (
