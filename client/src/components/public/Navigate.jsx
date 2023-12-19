@@ -5,9 +5,14 @@ import { path } from '../../utils/path';
 import { NAVIGATE } from '../../utils/contants';
 import Button from '../common/Button';
 import withBaseComp from '../../hocs/withBaseComp';
+import useStore from '../../store/useStore';
+import appStore from '../../store/appStore';
+import LoginModal from '../modal/LoginModal';
 
 const Navigate = ({ location }) => {
     const bgHome = location?.pathname === '/';
+    const { token } = useStore();
+    const { toggleIsShowModal } = appStore();
     return (
         <div className="w-full px-[44px] py-[10px] fixed flex justify-between top-[85px] right-0 left-0 z-50">
             <Link to={path.HOME}>
@@ -31,13 +36,25 @@ const Navigate = ({ location }) => {
                         {item.name}
                     </NavLink>
                 ))}
-                {bgHome ? (
-                    <Button outline onClick={() => console.log('ahihi')}>
-                        Add Listing
-                    </Button>
-                ) : (
-                    <div className={'w-[134px] h-[47px] bg-transparent rounded-md capitalize'}></div>
-                )}
+                {token &&
+                    (bgHome ? (
+                        <Button outline onClick={() => console.log('ahihi')}>
+                            Add Listing
+                        </Button>
+                    ) : (
+                        <div className={'w-[134px] h-[47px] bg-transparent rounded-md capitalize'}></div>
+                    ))}
+                {!token &&
+                    (bgHome ? (
+                        <Button
+                            outline
+                            onClick={() => toggleIsShowModal({ isShowModal: true, childrenModal: <LoginModal /> })}
+                        >
+                            Sign In
+                        </Button>
+                    ) : (
+                        <div className={'w-[105px] h-[47px] bg-transparent rounded-md capitalize'}></div>
+                    ))}
             </div>
         </div>
     );
