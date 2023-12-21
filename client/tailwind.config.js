@@ -7,6 +7,9 @@ export default {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
         extend: {
+            fontFamily: {
+                Cinzel: 'Cinzel serif',
+            },
             width: {
                 main: '1320px',
             },
