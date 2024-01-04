@@ -1,13 +1,13 @@
 /** @format */
 
-"use strict";
+'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable("Users", {
+        await queryInterface.createTable('Users', {
             id: {
                 type: Sequelize.UUID,
-                defaultValue: Sequelize.UUIDV4,
+                defaultValue: Sequelize.literal('gen_random_uuid()'),
                 allowNull: false,
                 primaryKey: true,
             },
@@ -16,6 +16,7 @@ module.exports = {
             },
             phone: {
                 type: Sequelize.STRING,
+                unique: true,
             },
             email: {
                 type: Sequelize.STRING,
@@ -27,7 +28,7 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             role: {
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING,
             },
             avatar: {
                 type: Sequelize.STRING,
@@ -43,6 +44,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable("Users");
+        await queryInterface.dropTable('Users');
     },
 };
